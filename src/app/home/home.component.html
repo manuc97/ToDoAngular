@@ -1,0 +1,15 @@
+<link href="https://use.fontawesome.com/releases/v5.0.7/css/all.css" rel="stylesheet">
+<form class="create">
+  <div class="form-fiel">
+    <label>Name:</label>
+    <input type="text" name="name" [(ngModel)]="item.name">
+    <button id="create" type="button" (click)="createItem()">Create</button>
+
+  </div>
+</form>
+<div class="container">
+  <div class="list">
+    <item *ngFor="let item of items" class="item" [item]="item">
+    </item>
+  </div>
+</div>

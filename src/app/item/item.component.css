@@ -1,0 +1,13 @@
+.item{
+  margin-left: 22px;
+  margin-top: 5px;
+}
+.fas{
+  margin: 5px;
+}
+.fa-check{
+  color: green;
+}
+.fa-times{
+  color:red;
+}

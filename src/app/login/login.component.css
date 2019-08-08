@@ -1,0 +1,14 @@
+.login{
+  display:flex;
+  flex-direction: column;
+  margin: 15px;
+}
+.btn{
+  margin-left:22px;
+  width: 245px;
+}
+label{
+  margin:10px;
+}
+
+
