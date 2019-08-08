@@ -1,0 +1,23 @@
+.create{
+	display: flex;
+	margin: 15px;
+}
+
+.list{
+	display: flex;
+	flex-direction: column;
+	width: 300px;
+    margin: auto;
+    margin-bottom: 15px;
+}
+
+.content{
+	width: 350px;
+	border: 1px solid;
+    box-shadow: 5px 10px #888888;
+    margin:100px auto;
+}
+
+h1{
+	text-align: center;
+}

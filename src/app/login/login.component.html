@@ -1,12 +1,14 @@
-
+<div class="login-container">
+  <h1>Login</h1>
   <form [formGroup]="loginForm" class="login">
     <label>
       Username:
-      <input type="text" formControlName="username" autocomplete="off" >
+      <input type="text"  formControlName="username" autocomplete="off" >
     </label>
     <label>
       Password:
-      <input type="password" formControlName="password" autocomplete="off" >
+      <input type="password"  formControlName="password" autocomplete="off" >
     </label>
   </form>
   <button class="btn" (click)="sendData()" >Login</button>
+</div>
