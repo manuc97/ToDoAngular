@@ -18,16 +18,20 @@ export class HttpService {
     return this.httpClient.get(url);
   }
 
-  public delete(url){
-    return this.httpClient.delete(url);
-  }
-
-  public put(url,data){
-    return this.httpClient.put(url,data);
-  }
-
   public post(url,data) {
     return this.httpClient.post(url, data);
   }
+
+   public put(url,data){
+    return this.httpClient.put(url,data);
+  }
+
+  public delete(url,data){
+    return this.httpClient.delete(url, data);
+  }
+
+ 
+
+  
 
 }

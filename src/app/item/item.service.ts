@@ -18,15 +18,15 @@ export class ItemService {
    }
 
    public deleteItem(item: Item){
-    const obs : Observable<any> = this.httpService.delete(`${this.url}/delete/item/${item._id}`);
-    obs.subscribe(
-      (data: Item) => {
-      },
-      (error: any) => {
-        console.log("Error!");
-      }
-    );
-    return obs;
+     console.log("delete" , item);
+     return this.httpService.delete(`${this.url}/delete/item/${item._id}`, item);
+    // const obs : Observable<any> = this.httpService.delete(`${this.url}/delete/item/${item._id}`, item);
+    // obs.subscribe(
+    //   (data: Item) => {
+    //   },
+    //   (error: any) => {
+    //     console.log("Error!");
+    //   }
    }
    public updateItem(item: Item){
     return this.httpService.put(`${this.url}/item/${item._id}`,item);

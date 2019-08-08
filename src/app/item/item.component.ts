@@ -1,5 +1,5 @@
 import { ItemService } from './item.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Item } from '../item.model';
 import { Subscription } from 'rxjs';
 
@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.css']
 })
-export class ItemComponent implements OnInit {
+export class ItemComponent {
   @Input() item : Item;
 
   private itemService : ItemService;
@@ -18,29 +18,12 @@ export class ItemComponent implements OnInit {
     this.itemService = ItemService;
    }
 
-  ngOnInit() {
-    this.getItems();
-  }
-
-  private getItems() {
-    console.log("as0");
-    const subscription: Subscription = this.itemService.getItems().subscribe(
-
-      (data: Array<Item>) => {
-        this.items = data;
-      },
-      (error: any) => {
-        console.log("Error!");
-      }
-    );
-  }
-
   public deleteItem(item: Item) {
     const subscription: Subscription = this.itemService
       .deleteItem(item)
       .subscribe(
         (data: Item) => {
-          console.log(data);
+          console.log("----",data);
           for (let i: number = 0; i < this.items.length; i++) {
             if (this.items[i]._id === item._id) {
               this.items.splice(i, 1);
@@ -61,7 +44,6 @@ export class ItemComponent implements OnInit {
       .subscribe(
         (data: Item) => {
           console.log(data);
-          console.log(this.items);
         },
         (error: any) => {
           console.log("Error!");

@@ -57,38 +57,25 @@ export class HomeComponent implements OnInit {
 
   }
 
-  public deleteItem(item: Item) {
-    const subscription: Subscription = this.itemService
-      .deleteItem(item)
-      .subscribe(
-        (data: Item) => {
-          console.log(data);
-          for (let i: number = 0; i < this.items.length; i++) {
-            if (this.items[i]._id === item._id) {
-              this.items.splice(i, 1);
-              break;
-            }
-          }
-        },
-        (error: any) => {
-          console.log("Error!");
-        }
-      );
-  }
+  // public deleteItem(item: Item) {
+  //   const subscription: Subscription = this.itemService
+  //     .deleteItem(item)
+  //     .subscribe(
+  //       (data: Item) => {
+  //         console.log(data);
+  //         for (let i: number = 0; i < this.items.length; i++) {
+  //           if (this.items[i]._id === item._id) {
+  //             this.items.splice(i, 1);
+  //             break;
+  //           }
+  //         }
+  //       },
+  //       (error: any) => {
+  //         console.log("Error!");
+  //       }
+  //     );
+  // }
 
-  public updateItem(item) {
-    console.log(item);
-    const subscription: Subscription = this.itemService
-      .updateItem(item)
-      .subscribe(
-        (data: Item) => {
-          console.log(data);
-          console.log(this.items);
-        },
-        (error: any) => {
-          console.log("Error!");
-        }
-      );
-  }
+ 
 
 }
