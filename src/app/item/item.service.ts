@@ -16,16 +16,8 @@ export class ItemService {
    }
 
    public deleteItem(item: Item){
-    const obs : Observable<any> = this.httpService.delete(`/delete/item/${item._id}`, item);
-    obs.subscribe(
-      (data: Item) => {
+     return this.httpService.delete(`/delete/item/${item._id}`, item);
 
-      },
-      (error: any) => {
-        console.log("Error!");
-      }
-    );
-    return obs;
    }
    public updateItem(item: Item){
     return this.httpService.put(`/item/${item._id}`,item);

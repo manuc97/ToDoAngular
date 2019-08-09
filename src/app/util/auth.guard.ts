@@ -23,21 +23,20 @@ export class AuthGuard implements CanActivate {
   }
 
   canActivate() {
-    // this.localStorageService.setItem("userID", "5d4be8478bfa932b3448f471");
     this.currentUser = this.userService.getCurrentUser();
-
     if (this.currentUser === undefined) {
-      if (this.localStorageService.getItem("userID") === undefined) {
-        this.router.navigate(["login"]);
+      console.log(this.currentUser);
+      if (this.localStorageService.getItem("user") === undefined) {
+        this.router.navigate(['/login']);
         return false;
       } else {
         const subject: Subject<boolean> = new Subject<boolean>();
         const obs: Observable<boolean> = subject.asObservable();
         this.userService
-          .getUser(this.localStorageService.getItem("userID"))
+          .getUser(this.localStorageService.getItem("user"))
           .subscribe((data: User) => {
             if (data === undefined) {
-              this.router.navigate(["login"]);
+              this.router.navigate(["/login"]);
               subject.next(false);
             } else {
               this.userService.setCurrentUser(data);

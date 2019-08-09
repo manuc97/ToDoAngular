@@ -60,9 +60,9 @@ app.post("/login", function(request, response) {
   });
 });
 
-app.get("/user/:id", function(request, response) {
+app.get("/user/:username", function(request, response) {
   console.log('here')
-  User.findOne({ _id: request.params.id }).then((data, error) => {
+  User.findOne({ username: request.params.username }).then((data, error) => {
     if (error === undefined) {
       response.status(200).json(data);
     } else {

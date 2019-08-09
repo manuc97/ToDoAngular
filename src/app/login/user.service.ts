@@ -9,13 +9,14 @@ export class UserService {
   private httpService: HttpService;
   private url: string = `http://localhost:4000`;
   private currentUser: User;
-  localStorageService: LocalStorageService;
+  private localStorageService: LocalStorageService;
 
-  constructor(httpService: HttpService) {
+  constructor(httpService: HttpService, localStorageService: LocalStorageService) {
     this.httpService = httpService;
+    this.localStorageService = localStorageService;
+
   }
   public login(user: User) {
-    console.log("here i am ");
     const obs: Observable<any> = this.httpService.post(
       `/login`,
       user
@@ -23,7 +24,7 @@ export class UserService {
     obs.subscribe(
       (data: User) => {
         this.currentUser = user;
-        // this.localStorageService.setItem("userID", user);
+        this.localStorageService.setItem("user", this.currentUser.username);
       },
       (error: any) => {
         console.log("Error!");
@@ -36,8 +37,8 @@ export class UserService {
     return this.currentUser;
   }
 
-  public getUser(id: string): Observable<User> {
-    return this.httpService.get(`/user/${id}`);
+  public getUser(username: string): Observable<User> {
+    return this.httpService.get(`/user/${username}`);
   }
 
   public setCurrentUser(user: User): void {

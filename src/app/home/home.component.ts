@@ -22,8 +22,6 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('HOMEEE');
-
     /* get all items */
     this.getItems();
   }
