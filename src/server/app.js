@@ -60,6 +60,17 @@ app.post("/login", function(request, response) {
   });
 });
 
+app.get("/user/:id", function(request, response) {
+  console.log('here')
+  User.findOne({ _id: request.params.id }).then((data, error) => {
+    if (error === undefined) {
+      response.status(200).json(data);
+    } else {
+      response.status(500).json(null);
+    }
+  });
+});
+
 app.get("/items", function(request, response) {
   Item.find().then((data, error) => {
     if (error === undefined) {

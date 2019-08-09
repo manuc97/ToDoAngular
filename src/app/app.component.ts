@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { Item } from "./item.model";
+import { Item } from "./item/item.model";
 import { HttpService } from "./http.service";
 import { Subscription, Observable } from "rxjs";
 import { NgForOf } from "@angular/common";

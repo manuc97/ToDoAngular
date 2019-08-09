@@ -1,3 +1,6 @@
+import { AuthGuard } from './util/auth.guard';
+import { ItemService } from './item/item.service';
+import { LocalStorageService } from './util/local-storage.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
@@ -9,6 +12,7 @@ import { ROUTES } from './app.routes';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { ItemComponent } from './item/item.component';
+import { UserService } from './login/user.service';
 
 const appRoutes: Routes = ROUTES;
 
@@ -30,7 +34,11 @@ const appRoutes: Routes = ROUTES;
     ReactiveFormsModule
   ],
   providers: [
-    HttpService
+    HttpService,
+    LocalStorageService,
+    UserService,
+    ItemService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
